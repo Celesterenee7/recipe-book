@@ -1,12 +1,71 @@
-
-.jumbotron {
-  text-align: center;
-  font-family: impact;
-
+ul {
+  list-style: none;
 }
 
-.container {
+li {
+  font-size: 20px;
+}
 
+p, a {
+  font-size: 18px;
+}
+
+.butt {
+  position:relative;
+  width: 50%;
+margin-top: 20px;
+margin-left: 25%;
+margin-right: 25%;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  width: 30%;
+  background-color: orange;
+  color: white;
+  text-align: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn a {
+  color: white;
+  text-decoration: none;
+}
+.butt:hover {
+  transform: translate(5px, 5px);
+}
+
+.jumbotron {
+  color: white;
+
+  text-align: center;
+  font-family: impact;
+  background-image: url(cookbook.jpg);
+  background-size: cover;
+  text-shadow: 2px 2px #b30000;
+  overflow: hidden;
+  a {
+    font-size: 30px;
+    color: orange;
+  }
+  a:hover {
+    color: #b30000;
+    text-shadow: 2px 2px orange;
+    font-size: 30px;
+    transition: font-size 1s;
+  }
+}
+
+.top {
+  text-align: center;
+  h1 {
+    font-size: 50px;
+  }
+
+}
+.container {
 padding-left: 100px;
 
 }

@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def index
+    @recipe_search = Recipe.where("name ilike '%#{params[:search]}%'").uniq
     @recipes = Recipe.all
     @food_tags = FoodTag.all
     render :index
@@ -52,6 +53,6 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :rating, :instruction)
+      params.require(:recipe).permit(:name, :rating, :instruction, :search)
     end
 end
