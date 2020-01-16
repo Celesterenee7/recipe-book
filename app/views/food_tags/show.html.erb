@@ -1,10 +1,13 @@
-<% @food_tag.recipes.each do |recipe| %>
+
+<% if @food_tag.recipes.any? %>
   <ul>
+<% @food_tag.recipes.each do |recipe| %>
     <li>
       <%= link_to recipe.name, recipe_path(recipe) %>
     </li>
-  </ul>
 <% end %>
+</ul>
 <% else %>
-<p>No recipes are listed for this recipe.</p>
+<p>No recipes are listed for this tag.</p>
 <% end %>
+<p><%= link_to "Edit", edit_food_tag_path(@food_tag) %></p>

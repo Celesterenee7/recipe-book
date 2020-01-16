@@ -1,22 +1,11 @@
-<h1>Recipes</h1>
+<h1>Top-Rated Recipes</h1>
 
-<% if @recipes.any? %>
+<% if @recipes.top_rated.any? %>
   <ul>
-    <% @recipes.each do |recipe| %>
+    <% @recipes.top_rated.each do |recipe| %>
       <li><%= link_to recipe.name, recipe_path(recipe) %></li>
     <% end %>
   </ul>
-<% else %>
-  <p>There are no recipes yet.</p>
-<% end %>
-
-<h1>TAGS:</h1>
-<% if @food_tags.any? %>
-<ul>
-  <% @food_tags.each do |tag| %>
-  <li><%= link_to tag.name, food_tag_path(tag) %></li>
-  <% end %>
-</ul>
 <% else %>
   <p>There are no recipes yet.</p>
 <% end %>

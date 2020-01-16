@@ -7,5 +7,7 @@
   <%= f.number_field :rating %>
   <h4><%= f.label :instruction %></h4>
   <%= f.text_area :instruction %>
+  <h4><%= f.label "Update Food Tag"  %></h4>
+<%= collection_select(:food_tags, :id, FoodTag.all, :id, :name) %>
   <p><%= f.submit :Submit, class: 'btn btn-primary'  %></p>
 <% end %>

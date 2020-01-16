@@ -1,50 +1,42 @@
 class RecipesController < ApplicationController
-  # before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-
-  # GET /recipes
-  # GET /recipes.json
   def index
     @recipes = Recipe.all
     @food_tags = FoodTag.all
     render :index
   end
 
-  # GET /recipes/1
-  # GET /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
     render :show
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
     render :new
   end
 
-  # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
     render :edit
   end
 
-  # POST /recipes
-  # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
+    @tag =  FoodTag.find(params[:food_tags].fetch("id"))
+    @recipe.food_tags << @tag
     if @recipe.save
-      flash[:alert] = "Recipe successfully added!"
+      flash[:notice] = "Recipe successfully added!"
       redirect_to recipes_path
     else
       render :new
     end
   end
 
-  # PATCH/PUT /recipes/1
-  # PATCH/PUT /recipes/1.json
   def update
       @recipe= Recipe.find(params[:id])
+      @tag =  FoodTag.find(params[:food_tags].fetch("id"))
+      @recipe.food_tags.delete_all
+      @recipe.food_tags << @tag
       if @recipe.update(recipe_params)
         redirect_to recipes_path
       else
@@ -52,8 +44,6 @@ class RecipesController < ApplicationController
       end
     end
 
-  # DELETE /recipes/1
-  # DELETE /recipes/1.json
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
@@ -64,5 +54,4 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :rating, :instruction)
     end
-
 end

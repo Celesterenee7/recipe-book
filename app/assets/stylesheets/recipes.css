@@ -1,5 +1,12 @@
 
-h1 {
+.jumbotron {
   text-align: center;
   font-family: impact;
+
+}
+
+.container {
+
+padding-left: 100px;
+
 }

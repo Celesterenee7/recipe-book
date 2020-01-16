@@ -12,13 +12,13 @@
 
 <body>
   <div class="jumbotron">
-    <h1>EPICODIERIOUS BOOK OF RECIPIES</h1>
+    <h1>EPICODIURUS BOOK OF RECIPES</h1>
+    <p><%= link_to "Recipes", recipes_path %> | <%= link_to "Tags", food_tags_path %>
   </div>
   <div class="container">
     <%= flash[:alert] %>
     <%= flash[:notice] %>
     <%= yield %>
-    <a href="/">HOME!</a>
   </div>
 </body>
 </html>
