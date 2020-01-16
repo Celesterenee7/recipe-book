@@ -8,5 +8,5 @@ describe Recipe do
    recipe = Recipe.create({name: "pasta meatloaf pie sauce", instruction: "wi sfj sfj"})
    expect(recipe.name()).to(eq("Pasta Meatloaf Pie Sauce"))
  end
- it { should have_and_belong_to_many :tags }
+ it { should have_and_belong_to_many :food_tags }
 end

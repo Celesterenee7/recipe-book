@@ -1,0 +1,10 @@
+<% @food_tag.recipes.each do |recipe| %>
+  <ul>
+    <li>
+      <%= link_to recipe.name, recipe_path(recipe) %>
+    </li>
+  </ul>
+<% end %>
+<% else %>
+<p>No recipes are listed for this recipe.</p>
+<% end %>

@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    @food_tags = FoodTag.all
     render :index
   end
 
@@ -31,6 +32,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+
     if @recipe.save
       flash[:alert] = "Recipe successfully added!"
       redirect_to recipes_path

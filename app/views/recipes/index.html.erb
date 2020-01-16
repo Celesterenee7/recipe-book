@@ -10,5 +10,14 @@
   <p>There are no recipes yet.</p>
 <% end %>
 
-
+<h1>TAGS:</h1>
+<% if @food_tags.any? %>
+<ul>
+  <% @food_tags.each do |tag| %>
+  <li><%= link_to tag.name, food_tag_path(tag) %></li>
+  <% end %>
+</ul>
+<% else %>
+  <p>There are no recipes yet.</p>
+<% end %>
 <p><%= link_to "Create new recipe", new_recipe_path %></p>
