@@ -1,11 +1,11 @@
 
 <% if @food_tag.recipes.any? %>
-  <ul>
-<% @food_tag.recipes.each do |recipe| %>
-    <li>
-      <%= link_to recipe.name, recipe_path(recipe) %>
-    </li>
-<% end %>
+<ul>
+  <% @food_tag.recipes.each do |recipe| %>
+  <li>
+    <%= link_to recipe.name, recipe_path(recipe) %>
+  </li>
+  <% end %>
 </ul>
 <% else %>
 <p>No recipes are listed for this tag.</p>

@@ -10,7 +10,7 @@ end
   random_offset = rand(count)
   tag = FoodTag.offset(random_offset).first
   recipe = Recipe.create!(name: Faker::Food.dish,
-    instruction: Faker::Food.description,
+    instruction: Faker::Lorem.paragraph(sentence_count: 25),
     rating: Faker::Number.between(from: 1, to: 10))
     recipe.food_tags << tag
     10.times do |index|
